@@ -1,0 +1,1 @@
+# Technology-for-Laziness.github.io
