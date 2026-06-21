@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>언어 선택 | Technology for Laziness</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/logo.png">
+    <style>
+        /* 기본 스타일 초기화 */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            padding: 0 2vw;
+        }
+        hr {
+            border: 0;
+            height: 1px;
+            background: #e0e0e0;
+            margin: 20px 0;
+        }
+
+        /* 상단 네비게이션 */
+        .nav {
+            display: flex;
+            align-items: center; 
+            padding: 20px 0;
+        }
+        #logo {
+            font-size: 1.4rem;
+            font-weight: bold;
+        }
+        .sections {
+            margin-left: auto;
+            display: flex;
+            gap: 2.5vw;
+        }
+        .sections p {
+            cursor: pointer;
+            font-weight: 500;
+        }
+        .sections p:hover {
+            color: #467427;
+        }
+
+        /* 중앙 언어 선택 섹션 */
+        .lang-select-container {
+            height: 45vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        .notice-sel {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 40px;
+            letter-spacing: -0.5px;
+        }
+        .sel-lang {
+            display: flex;
+            flex-direction: column;
+            gap: 25px; /* 글자 사이 여백을 넉넉히 주어 가독성 확보 */
+        }
+        /* 깔끔한 텍스트 링크 스타일링 */
+        .sel-lang a {
+            font-size: 1.5rem;
+            font-weight: 500;
+            color: #333;
+            text-decoration: none;
+            position: relative;
+            padding: 4px 0;
+            transition: color 0.2s ease;
+        }
+        /* 마우스를 올렸을 때 브랜드 컬러로 변경 */
+        .sel-lang a:hover {
+            color: #467427;
+        }
+        /* 세련된 밑줄 애니메이션 효과 생성 */
+        .sel-lang a::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            transform: scaleX(0);
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: #467427;
+            transform-origin: bottom right;
+            transition: transform 0.25s ease-out;
+        }
+        .sel-lang a:hover::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+
+        /* 텍스트 줄바꿈 공통 처리 */
+        p, a {
+            word-break: keep-all;
+            overflow-wrap: break-word;
+        }
+
+        /* 하단 푸터 영역 */
+        .notice {
+            display: flex;
+            align-items: center; 
+            justify-content: space-between;
+            padding: 15px 0;
+            font-size: 0.9rem;
+        }
+        .notice a {
+            color: #555;
+            text-decoration: none;
+        }
+        .notice a:hover {
+            text-decoration: underline;
+        }
+        .lang {
+            gap: 10px;
+            display: flex;
+            align-items: center; 
+        }
+        .lisence {
+            font-size: 0.8rem;
+            color: #888;
+            margin-bottom: 30px;
+        }
+
+        /* 모바일 반응형 디자인 (화면 폭 768px 이하) */
+        @media (max-width: 768px) {
+            .nav {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+            .sections {
+                margin-left: 0;
+                gap: 5vw;
+            }
+            .notice-sel {
+                font-size: 1.6rem;
+            }
+            .notice {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 상단 네비게이션 -->
+    <div class="nav">
+        <p id="logo">Technology for Laziness</p>
+        <div class="sections">
+            <p>Our Research</p>
+            <p>Research Philosophy</p>
+            <p>Notice</p>
+        </div>
+    </div>
+    
+    <hr>
+
+    <!-- 언어 선택 영역 -->
+    <div class="lang-select-container">
+        <p class="notice-sel">Please Select Language</p>
+        <div class="sel-lang">
+            <a href="/ko/">한국어</a>
+            <a href="/en/">English</a>
+        </div>
+    </div>
+    
+    <hr>
+
+    <!-- 하단 푸터 -->
+    <div class="notice">
+        <p class="copyrights">© 2026 Technology for Laziness. All rights reserved.</p>
+        <div class="lang">
+            <a href="/ko/">한국어</a>
+            <p>|</p>
+            <a href="/en/">English</a>
+        </div>
+    </div>
+    <p class="lisence">This foundation was supported by AI-HUB, which was built by the National Information Society Agency (NIA) funded by the Ministry of Science and ICT (MSIT).</p>
+</body>
+</html>
