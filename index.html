@@ -16,7 +16,7 @@
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             line-height: 1.6;
             color: #333;
-            padding: 0 2vw;
+            padding: 0 4vw;
         }
         hr {
             border: 0;
@@ -66,7 +66,7 @@
         .sel-lang {
             display: flex;
             flex-direction: column;
-            gap: 25px; /* 글자 사이 여백을 넉넉히 주어 가독성 확보 */
+            gap: 25px;
         }
         /* 깔끔한 텍스트 링크 스타일링 */
         .sel-lang a {
@@ -78,11 +78,10 @@
             padding: 4px 0;
             transition: color 0.2s ease;
         }
-        /* 마우스를 올렸을 때 브랜드 컬러로 변경 */
         .sel-lang a:hover {
             color: #467427;
         }
-        /* 세련된 밑줄 애니메이션 효과 생성 */
+        /* 밑줄 애니메이션 효과 생성 */
         .sel-lang a::after {
             content: '';
             position: absolute;
@@ -132,8 +131,11 @@
             margin-bottom: 30px;
         }
 
-        /* 모바일 반응형 디자인 (화면 폭 768px 이하) */
+        /* 📱 모바일 반응형 디자인 수정 (화면 폭 768px 이하) */
         @media (max-width: 768px) {
+            body {
+                padding: 0 5vw; /* 모바일에서 조금 더 안정적인 양쪽 여백 */
+            }
             .nav {
                 flex-direction: column;
                 gap: 15px;
@@ -142,13 +144,38 @@
             .sections {
                 margin-left: 0;
                 gap: 5vw;
+                width: 100%;
+                justify-content: center;
+            }
+            .lang-select-container {
+                height: auto;
+                min-height: 35vh; /* 고정 높이 해제하여 모바일 글자 겹침 방지 */
+                padding: 40px 0;
             }
             .notice-sel {
                 font-size: 1.6rem;
+                width: 100%;
+                margin-bottom: 30px;
+            }
+            .sel-lang {
+                width: 100%;
+                gap: 20px;
+            }
+            .sel-lang a {
+                font-size: 1.3rem;
+                display: inline-block;
+                width: max-content; /* 밑줄 길이가 글자 크기에 딱 맞도록 설정 */
+                margin: 0 auto;
             }
             .notice {
                 flex-direction: column;
-                gap: 10px;
+                gap: 12px;
+                text-align: center;
+            }
+            .lang {
+                justify-content: center;
+            }
+            .lisence {
                 text-align: center;
             }
         }
@@ -187,6 +214,18 @@
             <a href="/en/">English</a>
         </div>
     </div>
-    <p class="lisence">This foundation was supported by AI-HUB, which was built by the National Information Society Agency (NIA) funded by the Ministry of Science and ICT (MSIT).</p>
+    <p class="lisence">본 재단은 과학기술정보통신부 재원으로 한국지능정보사회진흥원(NIA)의 지원을 받아 구축된 AI-HUB 데이터를 활용하였습니다.</p>
 </body>
+<script>
+    // 1. 사용자의 브라우저 언어 감지 (앞 두 글자만 추출, 예: 'ko-KR' -> 'ko')
+    const userLang = (navigator.language || navigator.userLanguage).substring(0, 2);
+
+    // 2. 언어별 자동 리다이렉트 처리
+    if (userLang === 'ko') {
+        window.location.href = '/ko/'; // 한국어 사용자는 국문 메인으로 이동
+    } else {
+        window.location.href = '/en/'; // 그 외 모든 외국어 사용자는 영문 메인으로 이동
+    }
+</script>
+
 </html>

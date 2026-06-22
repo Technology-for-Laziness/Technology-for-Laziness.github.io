@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 | Technology for Laziness</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/logo.png">
+    <style>
+        /* 기본 스타일 초기화 */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            padding: 0 4vw;
+        }
+        hr {
+            border: 0;
+            height: 1px;
+            background: #e0e0e0;
+            margin: 20px 0;
+        }
+
+        /* 상단 네비게이션 */
+        .nav {
+            display: flex;
+            align-items: center; 
+            padding: 20px 0;
+        }
+        #logo {
+            font-size: 1.4rem;
+            font-weight: bold;
+        }
+        .sections {
+            margin-left: auto;
+            display: flex;
+            gap: 2.5vw;
+        }
+        .sections p {
+            cursor: pointer;
+            font-weight: 500;
+        }
+        .sections p:hover {
+            color: #467427;
+        }
+
+        /* 🦥 404 에러 섹션 레이아웃 */
+        .error-container {
+            height: 50vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+        }
+        .error-code {
+            font-size: 5rem;
+            font-weight: 900;
+            color: #467427;
+            line-height: 1;
+            margin-bottom: 10px;
+        }
+        .error-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            letter-spacing: -0.5px;
+        }
+        .error-text {
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 35px;
+            max-width: 500px;
+        }
+
+        /* 홈으로 이동 버튼 링크 스타일 */
+        .btn-home {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #333;
+            text-decoration: none;
+            position: relative;
+            padding: 6px 0;
+            transition: color 0.2s ease;
+        }
+        .btn-home:hover {
+            color: #467427;
+        }
+        /* 밑줄 애니메이션 효과 */
+        .btn-home::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            transform: scaleX(0);
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: #467427;
+            transform-origin: bottom right;
+            transition: transform 0.25s ease-out;
+        }
+        .btn-home:hover::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+
+        /* 텍스트 줄바꿈 공통 처리 */
+        p, a {
+            word-break: keep-all;
+            overflow-wrap: break-word;
+        }
+
+        /* 하단 푸터 영역 */
+        .notice {
+            display: flex;
+            align-items: center; 
+            justify-content: space-between;
+            padding: 15px 0;
+            font-size: 0.9rem;
+        }
+        .notice a {
+            color: #555;
+            text-decoration: none;
+        }
+        .notice a:hover {
+            text-decoration: underline;
+            color: #467427;
+        }
+        .lang {
+            gap: 10px;
+            display: flex;
+            align-items: center; 
+        }
+        .lisence {
+            font-size: 0.8rem;
+            color: #888;
+            margin-bottom: 30px;
+        }
+
+        /* 📱 모바일 반응형 디자인 (화면 폭 768px 이하) */
+        @media (max-width: 768px) {
+            body {
+                padding: 0 5vw !important;
+            }
+            .nav {
+                flex-direction: column !important;
+                gap: 15px !important;
+                text-align: center !important;
+            }
+            .sections {
+                margin-left: 0 !important;
+                gap: 5vw !important;
+                width: 100% !important;
+                justify-content: center !important;
+            }
+            .error-container {
+                height: auto;
+                min-height: 40vh;
+                padding: 50px 0;
+            }
+            .error-code {
+                font-size: 4rem;
+            }
+            .error-title {
+                font-size: 1.4rem;
+            }
+            .error-text {
+                font-size: 0.95rem;
+                margin-bottom: 25px;
+            }
+            .btn-home {
+                font-size: 1rem;
+            }
+            .notice {
+                flex-direction: column !important;
+                gap: 10px !important;
+                text-align: center !important;
+            }
+            .lang {
+                justify-content: center !important;
+            }
+            .lisence {
+                text-align: center !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 상단 네비게이션 -->
+    <div class="nav">
+        <p id="logo">Technology for Laziness</p>
+        <div class="sections">
+            <p id="nav-research">Our Research</p>
+            <p id="nav-philosophy">Research Philosophy</p>
+            <p id="nav-notice">Notice</p>
+        </div>
+    </div>
+    
+    <hr>
+
+    <!-- 404 에러 안내 영역 (id 값을 부여하여 스크립트로 제어) -->
+    <div class="error-container">
+        <div class="error-code">404</div>
+        <p class="error-title" id="err-title">Even our system is too lazy to find this page.</p>
+        <p class="error-text" id="err-text">The page you are looking for does not exist, has been moved, or our server was simply too lazy to fetch it.</p>
+        <a href="/" class="btn-home" id="err-btn">Go Back to Main Page</a>
+    </div>
+    
+    <hr>
+
+    <!-- 하단 푸터 -->
+    <div class="notice">
+        <p class="copyrights">© 2026 Technology for Laziness. All rights reserved.</p>
+        <div class="lang">
+            <a href="/ko/">한국어</a>
+            <p>|</p>
+            <a href="/en/">English</a>
+        </div>
+    </div>
+    <p class="lisence" id="footer-licence">This foundation was supported by AI-HUB, which was built by the National Information Society Agency (NIA) funded by the Ministry of Science and ICT (MSIT).</p>
+
+    <!-- ⚙️ 가변형 언어 전환 자바스크립트 -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // 브라우저 기본 언어 앞 2글자 가져오기 ('ko', 'en' 등)
+            const userLang = (navigator.language || navigator.userLanguage).substring(0, 2);
+
+            // 한국어 환경일 때만 텍스트를 국문으로 일괄 실시간 교체
+            if (userLang === 'ko') {
+                // 상단바 메뉴 변경
+                document.getElementById('nav-research').textContent = '연구 과제';
+                document.getElementById('nav-philosophy').textContent = '연구 철학';
+                document.getElementById('nav-notice').textContent = '공지사항';
+
+                // 중앙 에러 메시지 변경
+                document.getElementById('err-title').textContent = '우리 시스템조차 이 페이지를 찾기 귀찮아합니다.';
+                document.getElementById('err-text').textContent = '요청하신 페이지가 존재하지 않거나, 다른 주소로 이동되었거나, 서버가 불러오기를 포기했습니다.';
+                document.getElementById('err-btn').textContent = '메인페이지로 돌아가기';
+
+                // 하단 라이선스 변경
+                document.getElementById('footer-licence').textContent = '본 재단은 과학기술정보통신부 재원으로 한국지능정보사회진흥원(NIA)의 지원을 받아 구축된 AI-HUB 데이터를 활용하였습니다.';
+            }
+        });
+    </script>
+</body>
+</html>
