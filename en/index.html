@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MAIN | Technology for Laziness</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/logo.png">
+    <style>
+        /* 기본 스타일 초기화 */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            padding: 0 4vw;
+        }
+        hr {
+            border: 0;
+            height: 1px;
+            background: #e0e0e0;
+            margin: 20px 0;
+        }
+
+        /* 🖥 데스크톱 상단 바 스타일 */
+        .nav {
+            display: flex;
+            align-items: center; 
+            justify-content: space-between;
+            padding: 20px 0;
+            width: 100%;
+        }
+        #logo {
+            font-size: 1.4rem;
+            font-weight: bold;
+            white-space: nowrap;
+        }
+        .sections {
+            display: flex;
+            gap: 2.5vw;
+        }
+        .sections p {
+            cursor: pointer;
+            font-weight: 500;
+            white-space: nowrap;
+        }
+        .sections p:hover {
+            color: #467427;
+        }
+
+        /* 메인 타이틀 */
+        .title-div {
+            height: 25vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 20px;
+        }
+        .title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            max-width: 800px;
+            word-break: keep-all;
+        }
+
+        /* 본문 콘텐츠 레이아웃 */
+        .steps-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+        }
+        .steps-div {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 5vw;
+            margin-bottom: 80px;
+            width: 100%;
+        }
+        .steps-div:nth-of-type(even) {
+            flex-direction: row-reverse;
+        }
+        .steps-text-block {
+            flex: 1;
+        }
+        .steps-img {
+            flex: 1;
+            width: 100%;
+            max-width: 450px;
+            height: auto;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+        
+        p, a {
+            word-break: keep-all;
+            overflow-wrap: break-word;
+        }
+        
+        /* 텍스트 요소 개별 스타일 */
+        .step-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            line-height: 1.3;
+        }
+        .step-text {
+            font-size: 1.1rem;
+            color: #666;
+        }
+
+        /* 푸터 영역 */
+        .notice {
+            display: flex;
+            align-items: center; 
+            justify-content: space-between;
+            padding: 15px 0;
+            font-size: 0.9rem;
+        }
+        .notice a {
+            color: #555;
+            text-decoration: none;
+        }
+        .notice a:hover {
+            text-decoration: underline;
+        }
+        .lang {
+            gap: 10px;
+            display: flex;
+            align-items: center; 
+        }
+        .lisence {
+            font-size: 0.8rem;
+            color: #888;
+            margin-bottom: 30px;
+        }
+
+        /* 📱 모바일 (768px 이하) 레이아웃 재배치 미디어 쿼리 */
+        @media screen and (max-width: 768px) {
+            body {
+                padding: 0 5vw !important;
+            }
+            /* 상단 바를 상하 2단 구조로 변경 */
+            .nav {
+                flex-direction: column !important;
+                justify-content: center !important;
+                align-items: center !important;
+                padding: 15px 0 10px 0 !important;
+                gap: 12px !important;
+            }
+            #logo {
+                font-size: 1.3rem !important; /* 모바일에서도 로고는 알아볼 수 있게 크기 유지 */
+                text-align: center !important;
+                width: 100% !important;
+            }
+            /* 메뉴들을 아래쪽에 쪼르르 가로 정렬 */
+            .sections {
+                margin-left: 0 !important;
+                justify-content: center !important;
+                gap: 6vw !important; /* 메뉴 누르기 편하게 간격 확보 */
+                width: 100% !important;
+            }
+            .sections p {
+                font-size: 0.9rem !important;
+            }
+            .title {
+                font-size: 1.8rem !important;
+                width: 100% !important;
+            }
+            /* 본문 섹션 세로 정렬 */
+            .steps-div, .steps-div:nth-of-type(even) {
+                flex-direction: column !important;
+                gap: 25px !important;
+                margin-bottom: 60px !important;
+                width: 100% !important;
+            }
+            .steps-text-block {
+                width: 100% !important;
+                text-align: left !important;
+            }
+            .steps-img {
+                max-width: 100% !important;
+                width: 100% !important;
+                height: auto !important;
+                margin-top: 10px !important;
+            }
+            .step-title {
+                font-size: 1.4rem !important;
+                width: 100% !important;
+            }
+            .step-text {
+                font-size: 1rem !important;
+                width: 100% !important;
+            }
+            .notice {
+                flex-direction: column !important;
+                gap: 12px !important;
+                text-align: center !important;
+            }
+            .lang {
+                justify-content: center !important;
+            }
+            .lisence {
+                text-align: center !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 상단 바 -->
+    <div class="nav">
+        <p id="logo">Technology for Laziness</p>
+        <div class="sections">
+            <p>Our Research</p>
+            <p>Research Philosophy</p>
+            <p>Notice</p>
+        </div>
+    </div>
+    
+    <hr>
+
+    <!-- 메인 타이틀 -->
+    <div class="title-div">
+        <p class="title">We Make Programs Only for Your Laziness</p>
+    </div>
+
+    <!-- 콘텐츠 영역 -->
+    <div class="steps-container">
+        <!-- Step 1 -->
+        <div class="steps-div">
+            <div class="steps-text-block">
+                <p class="step-title">We identify inconveniences and challenges in daily life.</p>
+                <p class="step-text">We look closely at the small, often overlooked inconveniences people face every day, recognizing them not just as personal complaints but as collective social challenges that can and should be resolved through modern technology.</p>
+            </div>
+            <img class="steps-img" src="/images/step1.png" alt="Inconveniences and challenges in daily life">
+        </div>
+       
+        <!-- Step 2 -->
+        <div class="steps-div">
+            <div class="steps-text-block">
+                <p class="step-title">We build AI and code-based solutions to address them.</p>
+                <p class="step-text">We combine the power of artificial intelligence and software engineering to develop practical tools, dedicating ourselves to continuous research and innovation until these technological ideas are fully realized to serve the public good.</p>
+            </div>
+            <img class="steps-img" src="/images/step2.png" alt="AI and code-based solutions">
+        </div>
+
+        <!-- Step 3 -->
+        <div class="steps-div">
+            <div class="steps-text-block">
+                <p class="step-title">All of our technologies are released as open source.</p>
+                <p class="step-text">By making all of our source code completely open and accessible to the world, we strive to lower the barriers to technology, empower global developers, and ultimately contribute to building a more equitable and better society for everyone.</p>
+            </div>
+            <img class="steps-img" src="/images/step3.png" alt="Open source technologies code sharing">
+        </div>
+    </div>
+        
+    <hr>
+
+    <!-- 하단 푸터 -->
+    <div class="notice">
+        <p class="copyrights">© 2026 Technology for Laziness. All rights reserved.</p>
+        <div class="lang">
+            <a href="/ko/">한국어</a>
+            <p>|</p>
+            <a href="/en/">English</a>
+        </div>
+    </div>
+    <p class="lisence">This foundation was supported by AI-HUB, which was built by the National Information Society Agency (NIA) funded by the Ministry of Science and ICT (MSIT).</p>
+</body>
+</html>
